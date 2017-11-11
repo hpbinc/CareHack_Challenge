@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
     // [START declare_auth]
     private FirebaseAuth mAuth;
     // [END declare_auth]
-
     boolean mVerificationInProgress = false;
     String mVerificationId;
     PhoneAuthProvider.ForceResendingToken mResendToken;
