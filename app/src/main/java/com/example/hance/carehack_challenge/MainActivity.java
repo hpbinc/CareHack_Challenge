@@ -27,8 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     EditText MobileNumber,OTPEditview;
     Button Submit,OTPButton;
-    TextView Textview,Otp;
-    // [START declare_auth]
+      // [START declare_auth]
     private FirebaseAuth mAuth;
     // [END declare_auth]
     boolean mVerificationInProgress = false;
@@ -45,8 +44,6 @@ public class MainActivity extends AppCompatActivity {
         Submit = (Button) findViewById(R.id.submit);
         OTPEditview = (EditText) findViewById(R.id.otp_editText);
         OTPButton = (Button) findViewById(R.id.otp_button);
-        Textview = (TextView) findViewById(R.id.textView);
-        Otp = (TextView) findViewById(R.id.otp);
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -77,7 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onCodeSent(String verificationId,
                                    PhoneAuthProvider.ForceResendingToken token) {
-                // The SMS verification code has been sent to the provided phone number, we
+                // The SMS verification code has been sent to the provided ic_phone number, we
                 // now need to ask the user to enter the code and then construct a credential
                 // by combining the code with a verification ID.
                 //Log.d(TAG, "onCodeSent:" + verificationId);
@@ -87,10 +84,8 @@ public class MainActivity extends AppCompatActivity {
                 mResendToken = token;
                 MobileNumber.setVisibility(View.GONE);
                 Submit.setVisibility(View.GONE);
-                Textview.setVisibility(View.GONE);
                 OTPButton.setVisibility(View.VISIBLE);
                 OTPEditview.setVisibility(View.VISIBLE);
-                Otp.setVisibility(View.VISIBLE);
                 // ...
             }
         };
