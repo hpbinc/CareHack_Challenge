@@ -1,5 +1,6 @@
 package com.example.hance.carehack_challenge;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
         import android.support.annotation.NonNull;
         import android.support.v7.app.AppCompatActivity;
@@ -25,8 +26,11 @@ import android.os.Bundle;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String MY_PREFS_NAME = "hpbPrefsFile";
+
     EditText MobileNumber,OTPEditview;
     Button Submit,OTPButton;
+    String mobile_number;
       // [START declare_auth]
     private FirebaseAuth mAuth;
     // [END declare_auth]
@@ -95,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
         Submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                mobile_number = MobileNumber.getText().toString();
                 PhoneAuthProvider.getInstance().verifyPhoneNumber(
                         "+91"+MobileNumber.getText().toString(),        // Phone number to verify
                         60,                 // Timeout duration
@@ -120,6 +125,9 @@ public class MainActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
+                            SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                            editor.putString("mobile_number", mobile_number);
+                            editor.apply();
                             Toast.makeText(MainActivity.this,"Verification done",Toast.LENGTH_LONG).show();
                             FirebaseUser user = task.getResult().getUser();
                         } else {

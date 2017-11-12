@@ -8,7 +8,7 @@
     android:paddingLeft="18dp"
     android:paddingRight="18dp"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="#222328">
+    android:background="#cc353b">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -42,32 +42,26 @@
                             android:textColorHint="#fff"
                             android:drawableLeft="@drawable/ic_phone"/>
 
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#678522" />
-
                         <EditText
                             android:id="@+id/otp_editText"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:inputType="number"
                             android:ems="10"
-                            android:drawablePadding="16dp"
-                            android:padding="16dp"
+                            android:drawablePadding="12dp"
+                            android:padding="12dp"
                             android:hint="OTP"
                             android:textColor="#fff"
                             android:visibility="gone"
                             android:textColorHint="#fff"
                             android:background="@android:color/transparent"
                             android:maxLines="1"
-                            android:layout_marginTop="4dp"
                             android:drawableLeft="@drawable/ic_lock_white_24dp"/>
 
                         <View
                             android:layout_width="match_parent"
                             android:layout_height="1dp"
-                            android:background="#678522" />
+                            android:background="#fff" />
 
                         <Button
                             android:layout_width="match_parent"
@@ -79,10 +73,10 @@
                             android:textStyle="normal"
                             android:clickable="true"
                             android:textSize="18sp"
-                            android:textColor="#fff"
+                            android:textColor="#cc353b"
                             android:padding="16dp"
                             style="@style/TextAppearance.AppCompat.Body1"
-                            android:layout_marginTop="32dp"/>
+                            android:layout_marginTop="35dp"/>
 
                         <Button
                             android:layout_width="match_parent"
@@ -92,13 +86,13 @@
                             android:text="OTP"
                             android:id="@+id/otp_button"
                             android:textAllCaps="false"
-                            android:textColor="#fff"
+                            android:textColor="#cc353b"
                             android:textStyle="normal"
                             android:textSize="18sp"
                             android:padding="16dp"
                             android:clickable="true"
                             style="@style/TextAppearance.AppCompat.Body1"
-                            android:layout_marginTop="16dp"/>
+                            android:layout_marginTop="35dp"/>
 
 
                 </LinearLayout>
