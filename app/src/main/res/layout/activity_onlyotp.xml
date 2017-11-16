@@ -52,7 +52,7 @@
                 android:ems="10"
                 android:drawablePadding="12dp"
                 android:padding="12dp"
-                android:hint="OTP"
+                android:hint="GENERATE OTP"
                 android:textColor="#fff"
                 android:visibility="gone"
                 android:textColorHint="#fff"
