@@ -26,7 +26,11 @@
         <activity android:name=".first" />
         <activity android:name=".appointment" />
         <activity android:name=".calender_api" />
-        <activity android:name=".onlyotp"></activity>
+        <activity android:name=".onlyotp" />
+        <activity android:name=".show_appointments" />
+        <activity android:name=".logIn_appo" />
+        <activity android:name=".showing" />
+        <activity android:name=".insert"></activity>
     </application>
 
 </manifest>

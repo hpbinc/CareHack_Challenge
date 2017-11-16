@@ -74,21 +74,22 @@ public class sign_up extends AppCompatActivity {
                 editor.apply();
                 Intent i = new Intent(getApplicationContext(),first.class);
                 startActivity(i);
-                Toast.makeText(sign_up.this,"verification done"+ phoneAuthCredential,Toast.LENGTH_LONG).show();
+                finish();
+                Toast.makeText(sign_up.this,"Verified"+ phoneAuthCredential,Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onVerificationFailed(FirebaseException e) {
-                Toast.makeText(sign_up.this,"verification fail",Toast.LENGTH_LONG).show();
+                Toast.makeText(sign_up.this,"Verification Fail",Toast.LENGTH_LONG).show();
                 if (e instanceof FirebaseAuthInvalidCredentialsException) {
                     // Invalid request
                     // [START_EXCLUDE]
-                    Toast.makeText(sign_up.this,"invalid mob no",Toast.LENGTH_LONG).show();
+                    Toast.makeText(sign_up.this,"Invalid mobile number",Toast.LENGTH_LONG).show();
                     // [END_EXCLUDE]
                 } else if (e instanceof FirebaseTooManyRequestsException) {
                     // The SMS quota for the project has been exceeded
                     // [START_EXCLUDE]
-                    Toast.makeText(sign_up.this,"quta over" ,Toast.LENGTH_LONG).show();
+                   // Toast.makeText(sign_up.this,"quta over" ,Toast.LENGTH_LONG).show();
                     // [END_EXCLUDE]
                 }
             }
@@ -197,14 +198,16 @@ public class sign_up extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
                             editor.putString("mobile_number", mobile_number);
+                            editor.putString("email",Email);
                             editor.apply();
-                            Toast.makeText(sign_up.this,"Verification done",Toast.LENGTH_LONG).show();
+                            Toast.makeText(sign_up.this,"Verified",Toast.LENGTH_LONG).show();
                             FirebaseUser user = task.getResult().getUser();
                             Intent i = new Intent(getApplicationContext(),first.class);
                             startActivity(i);
+                            finish();
                         } else {
                             if (task.getException() instanceof FirebaseAuthInvalidCredentialsException) {
-                                Toast.makeText(sign_up.this,"Verification failed code invalid",Toast.LENGTH_LONG).show();
+                                Toast.makeText(sign_up.this,"Invalid OTP",Toast.LENGTH_LONG).show();
                             }
                         }
                     }

@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.hance.carehack_challenge.splash"
-    android:background="#cf4a4f">
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="18dp"
+    android:paddingRight="18dp"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="#cc353b">
 
 
+        <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+            android:layout_gravity="center_vertical"
+                android:padding="16dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/logoclear_noback"/>
 
-
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>

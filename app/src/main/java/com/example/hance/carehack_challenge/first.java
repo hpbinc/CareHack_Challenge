@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -23,18 +24,24 @@ public class first extends AppCompatActivity {
     public static final String MY_PREFS_NAME = "hpbPrefsFile";
     String mobile_number,checker,emailreturn;
     EditText MobileNumber;
+    Boolean isChecked;
+    CheckBox checkBox;
 
     public void login(View v){
         SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
-        mobile_number = prefs.getString("mobile_number", "No name defined");
+        mobile_number = prefs.getString("mobile_number", "");
+        isChecked = prefs.getBoolean("boolean", Boolean.parseBoolean(""));
         checker = MobileNumber.getText().toString();
         if(mobile_number.equals(checker))
         {
-            Intent i = new Intent(this,calender_api.class);
+            Intent i = new Intent(this,logIn_appo.class);
             startActivity(i);
+            finish();
         }
         else
         {
+
+            Toast.makeText(first.this, "else", Toast.LENGTH_SHORT).show();
 
             new AsyncTask<Void,Void,String>(){
 
@@ -59,8 +66,14 @@ public class first extends AppCompatActivity {
 
                         if(emailreturn.equals("999"))
                         {
-                            Intent i = new Intent(getApplicationContext(),sign_up.class);
-                            startActivity(i);
+
+                            first.this.runOnUiThread(new Runnable() {
+                                public void run() {
+                                    Toast.makeText(first.this, "Not a registered user!!!", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+
                         }
                         else
                         {
@@ -86,10 +99,38 @@ public class first extends AppCompatActivity {
 
     }
 
+    public void onClick(View v) {
+
+        boolean checked = ((CheckBox) v).isChecked();
+        switch (v.getId()) {
+            case R.id.checkbox:
+                if (checked)
+
+                {
+                    SharedPreferences.Editor editor = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE).edit();
+                    editor.putBoolean("boolean", true);
+                    editor.apply();
+
+                }
+
+            else
+
+                break;
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
         MobileNumber = (EditText) findViewById(R.id.mobileNumber);
+        SharedPreferences prefs = getSharedPreferences(MY_PREFS_NAME, MODE_PRIVATE);
+        mobile_number = prefs.getString("mobile_number","");
+        isChecked = prefs.getBoolean("boolean",true);
+        if(isChecked)
+            MobileNumber.setText(""+mobile_number);
+
+
     }
+
 }

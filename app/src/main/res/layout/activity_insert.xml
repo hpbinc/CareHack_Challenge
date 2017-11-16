@@ -35,38 +35,14 @@
                 android:textStyle="normal"
                 android:clickable="true"
                 android:id="@+id/insertbutton"
-                android:text="Get appointment"
+                android:text="Confirm Appointment"
                 android:textSize="18sp"
                 android:textColor="#cc353b"
                 android:padding="16dp"
                 style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_marginTop="32dp"
-                android:onClick="login"/>
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/buttonstyle"
-                android:id="@+id/callbutton"
-                android:text="Show my current appointments"
-                android:textAllCaps="false"
-                android:textColor="#cc353b"
-                android:textStyle="normal"
-                android:textSize="18sp"
-                android:padding="16dp"
-                android:clickable="true"
-                style="@style/TextAppearance.AppCompat.Body1"
-                android:layout_marginTop="16dp"
-                android:onClick="signup"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/text"/>
-
+                android:layout_marginTop="32dp" />
 
         </LinearLayout>
     </ScrollView>
 
 </LinearLayout>
-
