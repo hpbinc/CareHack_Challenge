@@ -41,8 +41,6 @@ public class first extends AppCompatActivity {
         else
         {
 
-            Toast.makeText(first.this, "else", Toast.LENGTH_SHORT).show();
-
             new AsyncTask<Void,Void,String>(){
 
                 @Override
